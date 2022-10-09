@@ -72,13 +72,13 @@ const clouds = [
     left: 53.8,
     top: 9,
     opacity: 0.6,
-    width: 15.2,
+    width: 15.3,
   },
   {
     left: 23.8,
     bottom: 30,
     opacity: 0.5,
-    width: 15.2,
+    width: 15.1,
   },
   {
     left: -6.4,
@@ -112,6 +112,7 @@ function LoginForm(props) {
       {clouds.map(({ right, top, opacity, bottom, left, width }) => {
         return (
           <Cloud
+            key={width}
             right={`${right}%`}
             top={`${top}%`}
             bottom={`${bottom}%`}
