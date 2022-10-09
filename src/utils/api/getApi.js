@@ -5,6 +5,6 @@ export const getApi = async (data) => {
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify(data),
+    referrerPolicy: "no-referrer-when-downgrade",
   });
-  return await res.json();
 };
