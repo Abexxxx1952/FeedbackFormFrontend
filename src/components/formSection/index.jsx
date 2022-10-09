@@ -38,6 +38,13 @@ function FormSection(props) {
   const email = useGetEmailField();
   const message = useGetMessageField();
 
+  const handleSubmit = () => {
+    getApi({ name, email, message });
+    dispatch(editMessageField(""));
+    dispatch(editEmailField(""));
+    dispatch(editNameField(""));
+  };
+
   return (
     <>
       <StyledHeader>Reach out to us!</StyledHeader>
@@ -46,7 +53,7 @@ function FormSection(props) {
         placeholder="Your name*"
         value={name}
         onChange={(e) => {
-          dispatch(editNameField(e.currentTarget.value));
+          dispatch(editNameField(e.target.value));
         }}
       />
       <StyledInput
@@ -54,7 +61,7 @@ function FormSection(props) {
         placeholder="Your e-mail*"
         value={email}
         onChange={(e) => {
-          dispatch(editEmailField(e.currentTarget.value));
+          dispatch(editEmailField(e.target.value));
         }}
       />
       <StyledInput
@@ -62,7 +69,7 @@ function FormSection(props) {
         placeholder="Your message*"
         value={message}
         onChange={(e) => {
-          dispatch(editMessageField(e.currentTarget.value));
+          dispatch(editMessageField(e.target.value));
         }}
       />
       <SendButton
@@ -71,10 +78,7 @@ function FormSection(props) {
         bottom="0%"
         left="0%"
         margin="4% 0% 0% 0%"
-        onClick={() => {
-          getApi({ name, email, message });
-          console.log("qwwr");
-        }}
+        onClick={handleSubmit}
       />
     </>
   );

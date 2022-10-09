@@ -1,5 +1,5 @@
 export const getApi = async (data) => {
-  const res = await fetch(process.env.POST_URL, {
+  const res = await fetch(process.env.REACT_APP_POST_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
